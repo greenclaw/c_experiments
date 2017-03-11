@@ -1,0 +1,75 @@
+#include <stdio.h>
+
+typedef struct Node {
+	int value;
+	struct Node * next;
+} node_t;
+
+int print_list(node_t *l);
+void insert_node(node_t **l, int v);
+int delete(node_t **l);
+int delete_node(node_t **l, int v);
+
+int main() {
+	node_t * tail = (node_t*)malloc(sizeof(node_t));
+	insert_node(&tail, 10);
+	insert_node(&tail, 2);
+	insert_node(&tail, 4);
+	insert_node(&tail, 66);
+	delete_node(&tail, 4);
+	print_list(tail);
+	return 0;
+}
+
+int print_list(node_t *l)
+{
+	//printf("%d",l->tail);
+	node_t * node = l; 
+	while(node != 0) {
+		printf("%d ", node->value);
+		node = node->next;
+	}
+	printf("\n");
+	return 0;
+}
+
+void insert_node(node_t **l, int v)
+{	
+	node_t * node = (node_t*)malloc(sizeof(node_t));
+	node->value = v;
+	node->next = *l;
+	*l = node;
+}
+
+int delete(node_t **l)
+{
+	if (l) {
+		*l = (*l)->next;
+		return 0;
+	} else
+		return 1;
+}
+
+int delete_node(node_t **l, int v)
+{
+	node_t *p;
+	node_t *t = *l;
+	int i = 0;
+	while(t != NULL) {
+		printf("E\n");
+		if (t->value == v) {
+			if (i == 0)
+				*l = (*l)->next;
+			else
+				p->next = p->next->next;
+			return 0;
+		}		
+		p = t;	
+		t = t->next;
+		i = 1;
+	} 
+	return 1;
+}
+
+
+

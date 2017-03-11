@@ -1,0 +1,195 @@
+    1  mkdir ~/week1
+    2  ls
+    3  cd week1/
+    4  ls /usr/bin | grep gcc | sort -r > ./ex1.txt
+    5  ls ex1.txt
+    6  cat ex1.txt
+    7  ls -la /boot/ | grep vmlinuz | head -n 3 
+    8  cat /proc/cpuinfo
+    9  cat /proc/cpuinfo | grep -i cpu cores
+   10  cat /proc/cpuinfo | grep -i cpu 
+   11  sudo apt-get install htop
+   12  free -m 
+   13  free -mh
+   14  X=0
+   15  rm -r C
+   16  function ctrl_c {         case "$1" in                 0) echo "Доброе утро";                      X=$(($X+1));                 ;;                 1) echo "Добрый день";                      X=$(($X+1));                 ;;                 2) echo "Добрый вечер";                      X=$(($X+1));                 ;;                 * ) exit 1;                 ;;         esac; }
+   17  function create_change() {         mkdir C;         cd ./C; }
+   18  N=""
+   19  trap ' ctrl_c $X ' INT
+   20  while :; do         read N;         if [ -z "$N" ];         then           echo "Введена пустая строка";         else           break;         fi; done
+   21  export X=0
+   22  ls
+   23  function ctrl_c { case "$1" in 0) echo "Good morning!"; X=$(($X+1)); ;; 1) echo "Good afternoon"; X=$(($X+1)); ;; 2) echo "Good evening"; X=$(($X+1)); ;; *) exit 1; ;; esac; }
+   24  function create_changedir { mkdir recursivly; cd ./recursivly; }
+   25  export N=""
+   26  ctrl_c
+   27  create_change
+   28  ls
+   29  history
+   30  create_chage
+   31  create_change
+   32  echo "X=0
+
+rm -r C
+
+function ctrl_c {
+        case "$1" in
+                0) echo "Доброе утро"
+                     X=$(($X+1))
+                ;;
+                1) echo "Добрый день"
+                     X=$(($X+1))
+                ;;
+                2) echo "Добрый вечер"
+                     X=$(($X+1))
+                ;;
+                * ) exit 1
+                ;;
+        esac
+}
+
+function create_change() {
+        mkdir C
+        cd ./C
+}
+
+N=""
+
+trap ' ctrl_c $X ' INT
+
+while :
+do
+        read N
+        if [ -z "$N" ]
+        then
+          echo "Введена пустая строка"
+        else
+          break
+        fi
+done
+
+for i in $(seq 1 $N)
+do
+        create_change
+        pwd
+done
+   33  echo "X=0
+DIR_NAME=recursivly
+
+rm -fr $DIR_NAME
+
+function inc {
+        X=$(($X+1))
+}
+
+function ctrl_c {
+        case "$1" in
+                0) echo "Доброе утро"
+                    inc
+                ;;
+                1) echo "Добрый день"
+                     inc
+                ;;
+                2) echo "Добрый вечер"
+                     inc
+                ;;
+                * ) exit 1
+                ;;
+        esac
+}
+
+function create_change() {
+        mkdir $DIR_NAME
+        cd ./$DIR_NAME
+}
+
+N=""
+
+trap ' ctrl_c $X ' INT
+
+while :
+do
+        read N
+        if [ -z "$N" ]
+        then
+          echo "Введена пустая строка"
+        else
+          break
+        fi
+done
+
+for i in $(seq 1 $N)
+do
+        create_change
+        pwd
+done" > procedure.sh
+   34  ls
+   35  chmod o+x procedure.sh 
+   36  ls
+   37  ./procedure.sh
+   38  chmod +x procedure.sh 
+   39  ./procedure.sh
+   40  nano procedure.sh 
+   41  echo "X=0
+DIR_NAME=recursivly
+
+rm -fr $DIR_NAME
+
+function inc {
+        X=$(($X+1))
+}
+
+function ctrl_c {
+        case "$1" in
+                0) echo "Good morning"
+                    inc
+                ;;
+                1) echo "Good afternoon"
+                     inc
+                ;;
+                2) echo "Good evening"
+                     inc
+                ;;
+                * ) exit 1
+                ;;
+        esac
+}
+
+function create_change() {
+        mkdir $DIR_NAME
+        cd ./$DIR_NAME
+}
+
+N=""
+
+trap ' ctrl_c $X ' INT
+
+while :
+do
+        read N
+        if [ -z "$N" ]
+        then
+          echo "This is empty string!"
+        else
+          break
+        fi
+done
+
+for i in $(seq 1 $N)
+do
+        create_change
+        pwd
+done" > procedure.sh
+   42  nano procedure.sh 
+   43  ./procedure.sh 
+   44  nano procedure.sh 
+   45  ./procedure.sh 
+   46  nano procedure.sh 
+   47  ./procedure.sh 
+   48  nano procedure.sh 
+   49  ./procedure.sh 
+   50  ls
+   51  cd week1/
+   52  ls
+   53  history > ex2.txt
